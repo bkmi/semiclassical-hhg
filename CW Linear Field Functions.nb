@@ -1,0 +1,389 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11761,        380]
+NotebookOptionsPosition[     10585,        332]
+NotebookOutlinePosition[     10938,        348]
+CellTagsIndexPosition[     10895,        345]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"atomic", " ", "units"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[HBar]", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"m", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"e", "=", "1"}], ";"}]}]}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Functions", "Section",
+ CellChangeTimes->{{3.658506053576996*^9, 3.658506057504569*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ef", "[", "t_", "]"}], "=", 
+   RowBox[{"EF1", "*", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"w", "*", "t"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ef", "[", "t", "]"}], "//", "InputForm"}]}], "Input",
+ CellChangeTimes->{{3.664647291241069*^9, 3.66464730393686*^9}, {
+  3.664647738636676*^9, 3.664647743045229*^9}}],
+
+Cell["EF1*Sin[t*w]", "Output",
+ CellChangeTimes->{3.664647346797633*^9, 3.664647743416827*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "vector", " ", "potential", " ", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"A", "[", "t_", "]"}]}], "=", 
+     RowBox[{"Integrate", "[", 
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"ef", "[", "t", "]"}]}], ",", "t"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"A", "[", "t_", "]"}], "=", 
+     RowBox[{"Integrate", "[", 
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"ef", "[", "t", "]"}]}], ",", "t"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"A", "[", "t", "]"}], "//", "InputForm"}]}]}]], "Input",
+ CellChangeTimes->{{3.664647342577873*^9, 3.664647344113962*^9}, {
+  3.664647758802266*^9, 3.664647765242589*^9}}],
+
+Cell["(EF1*Cos[t*w])/w", "Output",
+ CellChangeTimes->{
+  3.664647349641293*^9, {3.664647762982291*^9, 3.664647765456254*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "(*", " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "quiver", " ", "motion", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"alpha", "[", "t_", "]"}]}], "=", 
+     RowBox[{"Integrate", "[", 
+      RowBox[{
+       RowBox[{"A", "[", "t", "]"}], ",", "t"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"alpha", "[", "t_", "]"}], "=", 
+     RowBox[{"Integrate", "[", 
+      RowBox[{
+       RowBox[{"A", "[", "t", "]"}], ",", "t"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"alpha", "[", "t", "]"}], "//", "InputForm"}]}]}]], "Input",
+ CellChangeTimes->{{3.66464735812155*^9, 3.6646473596624804`*^9}, {
+  3.664647794786088*^9, 3.664647799421501*^9}}],
+
+Cell["(EF1*Sin[t*w])/w^2", "Output",
+ CellChangeTimes->{3.6646473601208467`*^9, 3.66464780009868*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Milosevic Eqns", "Section",
+ CellChangeTimes->{{3.6580098790063477`*^9, 3.658009882252616*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"eqn", " ", 
+    RowBox[{"(", "19", ")"}], " ", "milosevic", "\[IndentingNewLine]", "aka", 
+    " ", "saddle", " ", "point", " ", "finder", " ", "eqn", " ", 
+    RowBox[{"w", "/", " ", "fixed"}], " ", "real", " ", "tf"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"1", "/", 
+      RowBox[{"(", 
+       RowBox[{"2", "m"}], ")"}]}], "*", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"m", "/", "tau"}], "*", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"alpha", "[", 
+           RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+          RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "+", 
+       RowBox[{"e", "*", 
+        RowBox[{"A", "[", 
+         RowBox[{"tf", "-", "tau"}], "]"}]}]}], ")"}], "*", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"m", "/", "tau"}], "*", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"alpha", "[", 
+           RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+          RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "+", 
+       RowBox[{"e", "*", 
+        RowBox[{"A", "[", 
+         RowBox[{"tf", "-", "tau"}], "]"}]}]}], ")"}]}], "-", "gse"}], "//", 
+   "InputForm"}]}]], "Input",
+ CellChangeTimes->{{3.664647409465073*^9, 3.6646474146787767`*^9}}],
+
+Cell["\<\
+-gse + ((EF1*Cos[(-tau + tf)*w])/w + (-((EF1*Sin[tf*w])/w^2) + 
+      (EF1*Sin[(-tau + tf)*w])/w^2)/tau)^2/2\
+\>", "Output",
+ CellChangeTimes->{
+  3.6646473727905493`*^9, {3.6646474153694477`*^9, 3.664647439380068*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"deriv", "\[IndentingNewLine]", "eqn", " ", 
+    RowBox[{"(", "19", ")"}], " ", "milosevic", "\[IndentingNewLine]", "aka", 
+    " ", "saddle", " ", "point", " ", "finder", " ", "eqn", " ", 
+    RowBox[{"w", "/", " ", "fixed"}], " ", "real", " ", "tf"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"1", "/", 
+        RowBox[{"(", 
+         RowBox[{"2", "m"}], ")"}]}], "*", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"m", "/", "tau"}], "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"alpha", "[", 
+             RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+            RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "+", 
+         RowBox[{"e", "*", 
+          RowBox[{"A", "[", 
+           RowBox[{"tf", "-", "tau"}], "]"}]}]}], ")"}], "*", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"m", "/", "tau"}], "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"alpha", "[", 
+             RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+            RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "+", 
+         RowBox[{"e", "*", 
+          RowBox[{"A", "[", 
+           RowBox[{"tf", "-", "tau"}], "]"}]}]}], ")"}]}], "-", "gse"}], ",", 
+     "tau"}], "]"}], "//", "InputForm"}]}]], "Input",
+ CellChangeTimes->{{3.6646474216475983`*^9, 3.664647423934637*^9}, {
+  3.664648289914001*^9, 3.664648290310821*^9}}],
+
+Cell["\<\
+(-((EF1*Cos[(-tau + tf)*w])/(tau*w)) + EF1*Sin[(-tau + tf)*w] - 
+  (-((EF1*Sin[tf*w])/w^2) + (EF1*Sin[(-tau + tf)*w])/w^2)/tau^2)*
+ ((EF1*Cos[(-tau + tf)*w])/w + (-((EF1*Sin[tf*w])/w^2) + (EF1*Sin[(-tau + \
+tf)*w])/w^2)/
+   tau)\
+\>", "Output",
+ CellChangeTimes->{{3.664647396663691*^9, 3.664647441203868*^9}, 
+   3.664648291674202*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"eqn", " ", 
+    RowBox[{"(", "24", ")"}], " ", "Milosevic", "\[IndentingNewLine]", "aka", 
+    " ", "position", " ", "at", " ", "time", " ", "t"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"pos24", "[", 
+      RowBox[{"t_", ",", "tau_", ",", "tf_"}], "]"}], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"\[HBar]", "/", "m"}], "*", 
+       RowBox[{"(", 
+        RowBox[{"t", "-", "tf"}], ")"}], "*", 
+       RowBox[{"Re", "[", 
+        RowBox[{
+         RowBox[{"m", "/", "\[HBar]"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"1", "/", "tau"}], ")"}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"alpha", "[", 
+            RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+           RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "]"}]}], "+", 
+      RowBox[{"alpha", "[", "t", "]"}], "-", 
+      RowBox[{"alpha", "[", "tf", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"pos24", "[", 
+     RowBox[{"t", ",", "tau", ",", "tf"}], "]"}], "//", 
+    "InputForm"}]}]}]], "Input"],
+
+Cell["\<\
+(t - tf)*Re[(-((EF1*Sin[tf*w])/w^2) + (EF1*Sin[(-tau + tf)*w])/w^2)/tau] + 
+ (EF1*Sin[t*w])/w^2 - (EF1*Sin[tf*w])/w^2\
+\>", "Output",
+ CellChangeTimes->{3.664647446898452*^9, 3.664647866329632*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"eqn", " ", 
+    RowBox[{"(", "25", ")"}], " ", "Milosevic", "\[IndentingNewLine]", "aka", 
+    " ", "velocity", " ", "at", " ", "time", " ", "t"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"vel25", "[", 
+      RowBox[{"t_", ",", "tau_", ",", "tf_"}], "]"}], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"e", "/", "m"}], "*", 
+       RowBox[{"A", "[", "t", "]"}]}], "+", 
+      RowBox[{
+       RowBox[{"\[HBar]", "/", "m"}], "*", 
+       RowBox[{"Re", "[", 
+        RowBox[{
+         RowBox[{"m", "/", "\[HBar]"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"1", "/", "tau"}], ")"}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"alpha", "[", 
+            RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+           RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "]"}]}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"vel25", "[", 
+     RowBox[{"t", ",", "tau", ",", "tf"}], "]"}], "//", 
+    "InputForm"}]}]}]], "Input"],
+
+Cell["\<\
+(EF1*Cos[t*w])/w + Re[(-((EF1*Sin[tf*w])/w^2) + (EF1*Sin[(-tau + \
+tf)*w])/w^2)/tau]\
+\>", "Output",
+ CellChangeTimes->{3.664647467538574*^9, 3.664647836712859*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 652},
+WindowMargins->{{73, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 29, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 454, 12, 165, "Input"],
+Cell[CellGroupData[{
+Cell[1037, 36, 94, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[1156, 41, 386, 10, 46, "Input"],
+Cell[1545, 53, 94, 1, 29, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1676, 59, 928, 27, 165, "Input"],
+Cell[2607, 88, 125, 2, 29, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2769, 95, 929, 26, 199, "Input"],
+Cell[3701, 123, 101, 1, 29, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3851, 130, 101, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[3977, 135, 1431, 40, 165, "Input"],
+Cell[5411, 177, 229, 5, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5677, 187, 1628, 43, 182, "Input"],
+Cell[7308, 232, 346, 8, 85, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7691, 245, 1262, 33, 199, "Input"],
+Cell[8956, 280, 207, 4, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9200, 289, 1180, 33, 165, "Input"],
+Cell[10383, 324, 174, 4, 29, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

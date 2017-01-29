@@ -1,0 +1,1105 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     41995,       1096]
+NotebookOptionsPosition[     40713,       1048]
+NotebookOutlinePosition[     41066,       1064]
+CellTagsIndexPosition[     41023,       1061]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"atomic", " ", "units"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[HBar]", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"m", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"e", "=", "1"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.6574715792317944`*^9, 3.6574715952392597`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Functions", "Section",
+ CellChangeTimes->{{3.658506053576996*^9, 3.658506057504569*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+   "n", " ", "and", " ", "m", " ", "times", " ", "\[Omega]", " ", "field", 
+    " ", "mixing", "\[IndentingNewLine]", "modulated", " ", "by", " ", "sin", 
+    
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"modw", " ", "*", " ", "t"}], " ", "+", " ", "modphase"}], 
+     ")"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"Expand", "[", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"1", "/", 
+       RowBox[{"(", 
+        RowBox[{"2", "*", "\[ImaginaryI]"}], ")"}]}], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"EF1", "/", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"1", "+", 
+            RowBox[{"epsilon1", "^", "2"}]}], "]"}]}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           OverscriptBox["x", "^"], "-", 
+           RowBox[{"\[ImaginaryI]", " ", "epsilon1", " ", 
+            OverscriptBox["y", "^"]}]}], ")"}], 
+         RowBox[{"\[ExponentialE]", "^", 
+          RowBox[{"(", 
+           RowBox[{"int1", "*", "\[ImaginaryI]", "*", "w", "*", "t"}], 
+           ")"}]}]}], "+", 
+        RowBox[{
+         RowBox[{"EF2", "/", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"1", "+", 
+            RowBox[{"epsilon2", "^", "2"}]}], "]"}]}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           OverscriptBox["x", "^"], "-", 
+           RowBox[{"\[ImaginaryI]", " ", "epsilon2", " ", 
+            OverscriptBox["y", "^"]}]}], ")"}], 
+         RowBox[{"\[ExponentialE]", "^", 
+          RowBox[{"(", 
+           RowBox[{"int2", "*", "\[ImaginaryI]", " ", "w", " ", "t"}], 
+           ")"}]}]}]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", 
+       RowBox[{"(", 
+        RowBox[{"2", "*", 
+         RowBox[{"-", "\[ImaginaryI]"}]}], ")"}]}], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"EF1", "/", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"1", "+", 
+            RowBox[{"epsilon1", "^", "2"}]}], "]"}]}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           OverscriptBox["x", "^"], "+", 
+           RowBox[{"\[ImaginaryI]", " ", "epsilon1", " ", 
+            OverscriptBox["y", "^"]}]}], ")"}], 
+         RowBox[{"\[ExponentialE]", "^", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "int1"}], "*", "\[ImaginaryI]", "*", "w", "*", "t"}],
+            ")"}]}]}], "+", 
+        RowBox[{
+         RowBox[{"EF2", "/", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"1", "+", 
+            RowBox[{"epsilon2", "^", "2"}]}], "]"}]}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           OverscriptBox["x", "^"], "+", 
+           RowBox[{"\[ImaginaryI]", " ", "epsilon2", " ", 
+            OverscriptBox["y", "^"]}]}], ")"}], 
+         RowBox[{"\[ExponentialE]", "^", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "int2"}], "*", "\[ImaginaryI]", " ", "w", " ", "t"}],
+            ")"}]}]}]}], ")"}]}]}], ")"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.657469906423399*^9, 3.657469923450502*^9}, {
+   3.657470224083879*^9, 3.657470243582513*^9}, {3.657470984794998*^9, 
+   3.657471032010644*^9}, {3.6574710857393093`*^9, 3.657471220119019*^9}, 
+   3.657475787723053*^9, 3.657475833828485*^9, {3.657476022974231*^9, 
+   3.657476086307455*^9}, {3.6578917771766148`*^9, 3.6578917772978363`*^9}, {
+   3.664553766011508*^9, 3.6645537700663958`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", "int1", " ", "t", " ", "w"}]], " ",
+     "EF1", " ", 
+    OverscriptBox["x", "^"]}], 
+   RowBox[{"2", " ", 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      SuperscriptBox["epsilon1", "2"]}]]}]], "-", 
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", "int1", " ", "t", " ", "w"}]], " ", "EF1", 
+    " ", 
+    OverscriptBox["x", "^"]}], 
+   RowBox[{"2", " ", 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      SuperscriptBox["epsilon1", "2"]}]]}]], "+", 
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", "int2", " ", "t", " ", "w"}]], " ",
+     "EF2", " ", 
+    OverscriptBox["x", "^"]}], 
+   RowBox[{"2", " ", 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      SuperscriptBox["epsilon2", "2"]}]]}]], "-", 
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", "int2", " ", "t", " ", "w"}]], " ", "EF2", 
+    " ", 
+    OverscriptBox["x", "^"]}], 
+   RowBox[{"2", " ", 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      SuperscriptBox["epsilon2", "2"]}]]}]], "-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", "int1", " ", "t", " ", "w"}]], " ",
+     "EF1", " ", "epsilon1", " ", 
+    OverscriptBox["y", "^"]}], 
+   RowBox[{"2", " ", 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      SuperscriptBox["epsilon1", "2"]}]]}]], "-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", "int1", " ", "t", " ", "w"}]], " ", "EF1", 
+    " ", "epsilon1", " ", 
+    OverscriptBox["y", "^"]}], 
+   RowBox[{"2", " ", 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      SuperscriptBox["epsilon1", "2"]}]]}]], "-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", "int2", " ", "t", " ", "w"}]], " ",
+     "EF2", " ", "epsilon2", " ", 
+    OverscriptBox["y", "^"]}], 
+   RowBox[{"2", " ", 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      SuperscriptBox["epsilon2", "2"]}]]}]], "-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", "int2", " ", "t", " ", "w"}]], " ", "EF2", 
+    " ", "epsilon2", " ", 
+    OverscriptBox["y", "^"]}], 
+   RowBox[{"2", " ", 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      SuperscriptBox["epsilon2", "2"]}]]}]]}]], "Output",
+ CellChangeTimes->{
+  3.65747101513135*^9, 3.657471229635797*^9, {3.6574758058473587`*^9, 
+   3.657475810739108*^9}, 3.657476093366106*^9, 3.657476132766901*^9, 
+   3.6578917802080307`*^9, 3.657891974251656*^9, 3.664553772782661*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+   "electric", " ", "field", " ", "modulated", " ", "as", " ", "a", " ", 
+    "pulse"}], "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"Ex", "[", "t_", "]"}], "=", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"\[ImaginaryI]", " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], " ", "int1", " ", "t", " ", "w"}]], 
+        " ", "EF1", " "}], 
+       RowBox[{"2", " ", 
+        SqrtBox[
+         RowBox[{"1", "+", 
+          SuperscriptBox["epsilon1", "2"]}]]}]], "-", 
+      FractionBox[
+       RowBox[{"\[ImaginaryI]", " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", "int1", " ", "t", " ", "w"}]], " ", 
+        "EF1", " "}], 
+       RowBox[{"2", " ", 
+        SqrtBox[
+         RowBox[{"1", "+", 
+          SuperscriptBox["epsilon1", "2"]}]]}]], "+", 
+      FractionBox[
+       RowBox[{"\[ImaginaryI]", " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], " ", "int2", " ", "t", " ", "w"}]], 
+        " ", "EF2", " "}], 
+       RowBox[{"2", " ", 
+        SqrtBox[
+         RowBox[{"1", "+", 
+          SuperscriptBox["epsilon2", "2"]}]]}]], "-", 
+      FractionBox[
+       RowBox[{"\[ImaginaryI]", " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", "int2", " ", "t", " ", "w"}]], " ", 
+        "EF2", " "}], 
+       RowBox[{"2", " ", 
+        SqrtBox[
+         RowBox[{"1", "+", 
+          SuperscriptBox["epsilon2", "2"]}]]}]]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Ey", "[", "t_", "]"}], "=", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], " ", "int1", " ", "t", " ", "w"}]],
+          " ", "EF1", " ", "epsilon1"}], 
+        RowBox[{"2", " ", 
+         SqrtBox[
+          RowBox[{"1", "+", 
+           SuperscriptBox["epsilon1", "2"]}]]}]]}], "-", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", "int1", " ", "t", " ", "w"}]], " ", 
+        "EF1", " ", "epsilon1"}], 
+       RowBox[{"2", " ", 
+        SqrtBox[
+         RowBox[{"1", "+", 
+          SuperscriptBox["epsilon1", "2"]}]]}]], "-", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], " ", "int2", " ", "t", " ", "w"}]], 
+        " ", "EF2", " ", "epsilon2"}], 
+       RowBox[{"2", " ", 
+        SqrtBox[
+         RowBox[{"1", "+", 
+          SuperscriptBox["epsilon2", "2"]}]]}]], "-", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", "int2", " ", "t", " ", "w"}]], " ", 
+        "EF2", " ", "epsilon2", " "}], 
+       RowBox[{"2", " ", 
+        SqrtBox[
+         RowBox[{"1", "+", 
+          SuperscriptBox["epsilon2", "2"]}]]}]]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ef", "[", "t_", "]"}], "=", 
+     RowBox[{"(", GridBox[{
+        {
+         RowBox[{"Ex", "[", "t", "]"}]},
+        {
+         RowBox[{"Ey", "[", "t", "]"}]}
+       }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ef", "[", "t", "]"}], "//", "InputForm"}]}]}]], "Input",
+ CellChangeTimes->{{3.6574712748022137`*^9, 3.6574713627333307`*^9}, {
+   3.6574761457359667`*^9, 3.657476160073503*^9}, 3.6574762110710373`*^9, {
+   3.65747624650385*^9, 3.657476270169272*^9}, {3.657476983791566*^9, 
+   3.6574769935136967`*^9}, {3.657892007161098*^9, 3.6578920464164677`*^9}, {
+   3.6578922841654654`*^9, 3.657892288540825*^9}, {3.658010143181343*^9, 
+   3.6580101471052313`*^9}, {3.6580187904355803`*^9, 3.658018796811243*^9}, {
+   3.658023568076683*^9, 3.6580235682882032`*^9}, {3.6624011746653*^9, 
+   3.6624011792834263`*^9}, {3.664553785032943*^9, 3.664553815544429*^9}, {
+   3.6645634010250053`*^9, 3.664563405798621*^9}}],
+
+Cell["\<\
+{{((I/2)*EF1)/(E^(I*int1*t*w)*Sqrt[1 + epsilon1^2]) - \
+((I/2)*E^(I*int1*t*w)*EF1)/Sqrt[1 + epsilon1^2] + 
+   ((I/2)*EF2)/(E^(I*int2*t*w)*Sqrt[1 + epsilon2^2]) - \
+((I/2)*E^(I*int2*t*w)*EF2)/Sqrt[1 + epsilon2^2]}, 
+ {-(EF1*epsilon1)/(2*E^(I*int1*t*w)*Sqrt[1 + epsilon1^2]) - \
+(E^(I*int1*t*w)*EF1*epsilon1)/
+    (2*Sqrt[1 + epsilon1^2]) - (EF2*epsilon2)/(2*E^(I*int2*t*w)*Sqrt[1 + \
+epsilon2^2]) - 
+   (E^(I*int2*t*w)*EF2*epsilon2)/(2*Sqrt[1 + epsilon2^2])}}\
+\>", "Output",
+ CellChangeTimes->{3.6645634061232443`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "vector", " ", "potential", " ", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"A", "[", "t_", "]"}]}], "=", 
+     RowBox[{"Integrate", "[", 
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"ef", "[", "t", "]"}]}], ",", "t"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"A", "[", "t_", "]"}], "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              RowBox[{"-", "\[ImaginaryI]"}], " ", "int1", " ", "t", " ", 
+              "w"}]], " ", "EF1"}], 
+           RowBox[{
+            SqrtBox[
+             RowBox[{"1", "+", 
+              SuperscriptBox["epsilon1", "2"]}]], " ", "int1", " ", "w"}]], 
+          "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{"\[ImaginaryI]", " ", "int1", " ", "t", " ", "w"}]], " ",
+             "EF1"}], 
+           RowBox[{
+            SqrtBox[
+             RowBox[{"1", "+", 
+              SuperscriptBox["epsilon1", "2"]}]], " ", "int1", " ", "w"}]], 
+          "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              RowBox[{"-", "\[ImaginaryI]"}], " ", "int2", " ", "t", " ", 
+              "w"}]], " ", "EF2"}], 
+           RowBox[{
+            SqrtBox[
+             RowBox[{"1", "+", 
+              SuperscriptBox["epsilon2", "2"]}]], " ", "int2", " ", "w"}]], 
+          "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{"\[ImaginaryI]", " ", "int2", " ", "t", " ", "w"}]], " ",
+             "EF2"}], 
+           RowBox[{
+            SqrtBox[
+             RowBox[{"1", "+", 
+              SuperscriptBox["epsilon2", "2"]}]], " ", "int2", " ", "w"}]]}], 
+         ")"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              RowBox[{"-", "\[ImaginaryI]"}], " ", "int1", " ", "t", " ", 
+              "w"}]], " ", "EF1", " ", "epsilon1"}], 
+           RowBox[{
+            SqrtBox[
+             RowBox[{"1", "+", 
+              SuperscriptBox["epsilon1", "2"]}]], " ", "int1", " ", "w"}]], 
+          "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{"\[ImaginaryI]", " ", "int1", " ", "t", " ", "w"}]], " ",
+             "EF1", " ", "epsilon1"}], 
+           RowBox[{
+            SqrtBox[
+             RowBox[{"1", "+", 
+              SuperscriptBox["epsilon1", "2"]}]], " ", "int1", " ", "w"}]], 
+          "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              RowBox[{"-", "\[ImaginaryI]"}], " ", "int2", " ", "t", " ", 
+              "w"}]], " ", "EF2", " ", "epsilon2"}], 
+           RowBox[{
+            SqrtBox[
+             RowBox[{"1", "+", 
+              SuperscriptBox["epsilon2", "2"]}]], " ", "int2", " ", "w"}]], 
+          "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{"\[ImaginaryI]", " ", "int2", " ", "t", " ", "w"}]], " ",
+             "EF2", " ", "epsilon2"}], 
+           RowBox[{
+            SqrtBox[
+             RowBox[{"1", "+", 
+              SuperscriptBox["epsilon2", "2"]}]], " ", "int2", " ", "w"}]]}], 
+         ")"}]}], "}"}]}], "}"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.661618407123403*^9, 3.66161840814972*^9}, 
+   3.661618545104691*^9, 3.662394332667294*^9, {3.662736502142386*^9, 
+   3.662736505449945*^9}, {3.662818088850979*^9, 3.662818092594076*^9}, {
+   3.6645538339696627`*^9, 3.664553848258575*^9}, 3.6645539027696247`*^9, {
+   3.6645619799722853`*^9, 3.664561982421517*^9}, {3.66456203308329*^9, 
+   3.6645620332955*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.66455384519343*^9, 3.664553845210464*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "(*", " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "quiver", " ", "motion", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"alpha", "[", "t_", "]"}]}], "=", 
+     RowBox[{"Integrate", "[", 
+      RowBox[{
+       RowBox[{"A", "[", "t", "]"}], ",", "t"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"alpha", "[", "t_", "]"}], "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       FractionBox[
+        RowBox[{
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             RowBox[{"-", "\[ImaginaryI]"}], " ", "int2", " ", "t", " ", 
+             "w"}]], " ", "EF2", " ", "int1"}], 
+          RowBox[{
+           SqrtBox[
+            RowBox[{"1", "+", 
+             SuperscriptBox["epsilon2", "2"]}]], " ", "int2", " ", "w"}]], 
+         "-", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"\[ImaginaryI]", " ", "int2", " ", "t", " ", "w"}]], " ", 
+           "EF2", " ", "int1"}], 
+          RowBox[{
+           SqrtBox[
+            RowBox[{"1", "+", 
+             SuperscriptBox["epsilon2", "2"]}]], " ", "int2", " ", "w"}]], 
+         "+", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             RowBox[{"-", "\[ImaginaryI]"}], " ", "int1", " ", "t", " ", 
+             "w"}]], " ", "EF1", " ", "int2"}], 
+          RowBox[{
+           SqrtBox[
+            RowBox[{"1", "+", 
+             SuperscriptBox["epsilon1", "2"]}]], " ", "int1", " ", "w"}]], 
+         "-", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"\[ImaginaryI]", " ", "int1", " ", "t", " ", "w"}]], " ", 
+           "EF1", " ", "int2"}], 
+          RowBox[{
+           SqrtBox[
+            RowBox[{"1", "+", 
+             SuperscriptBox["epsilon1", "2"]}]], " ", "int1", " ", "w"}]]}], 
+        RowBox[{"2", " ", "int1", " ", "int2", " ", "w"}]], "}"}], ",", 
+      RowBox[{"{", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FractionBox[
+            RowBox[{"\[ImaginaryI]", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               RowBox[{"-", "\[ImaginaryI]"}], " ", "int2", " ", "t", " ", 
+               "w"}]], " ", "EF2", " ", "epsilon2", " ", "int1"}], 
+            RowBox[{
+             SqrtBox[
+              RowBox[{"1", "+", 
+               SuperscriptBox["epsilon2", "2"]}]], " ", "int2", " ", "w"}]], 
+           "+", 
+           FractionBox[
+            RowBox[{"\[ImaginaryI]", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"\[ImaginaryI]", " ", "int2", " ", "t", " ", "w"}]], 
+             " ", "EF2", " ", "epsilon2", " ", "int1"}], 
+            RowBox[{
+             SqrtBox[
+              RowBox[{"1", "+", 
+               SuperscriptBox["epsilon2", "2"]}]], " ", "int2", " ", "w"}]], 
+           "+", 
+           FractionBox[
+            RowBox[{"\[ImaginaryI]", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               RowBox[{"-", "\[ImaginaryI]"}], " ", "int1", " ", "t", " ", 
+               "w"}]], " ", "EF1", " ", "epsilon1", " ", "int2"}], 
+            RowBox[{
+             SqrtBox[
+              RowBox[{"1", "+", 
+               SuperscriptBox["epsilon1", "2"]}]], " ", "int1", " ", "w"}]], 
+           "+", 
+           FractionBox[
+            RowBox[{"\[ImaginaryI]", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"\[ImaginaryI]", " ", "int1", " ", "t", " ", "w"}]], 
+             " ", "EF1", " ", "epsilon1", " ", "int2"}], 
+            RowBox[{
+             SqrtBox[
+              RowBox[{"1", "+", 
+               SuperscriptBox["epsilon1", "2"]}]], " ", "int1", " ", "w"}]]}],
+           ")"}]}], 
+        RowBox[{"2", " ", "int1", " ", "int2", " ", "w"}]], "}"}]}], "}"}]}], 
+   ";"}]}]], "Input",
+ CellChangeTimes->{{3.6616185664829206`*^9, 3.661618572192644*^9}, 
+   3.661618707436631*^9, 3.662394343964953*^9, {3.662679671955413*^9, 
+   3.662679676800171*^9}, {3.662684749428688*^9, 3.66268475531238*^9}, {
+   3.664553872283678*^9, 3.66455390072956*^9}, {3.66456203590399*^9, 
+   3.664562038267511*^9}, {3.664562090425768*^9, 3.6645620909264517`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6645538855997133`*^9, 3.66455388561727*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Milosevic Eqns", "Section",
+ CellChangeTimes->{{3.6580098790063477`*^9, 3.658009882252616*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"eqn", " ", 
+    RowBox[{"(", "19", ")"}], " ", "milosevic", "\[IndentingNewLine]", "aka", 
+    " ", "saddle", " ", "point", " ", "finder", " ", "eqn", " ", 
+    RowBox[{"w", "/", " ", "fixed"}], " ", "real", " ", "tf"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"1", "/", 
+      RowBox[{"(", 
+       RowBox[{"2", "m"}], ")"}]}], "*", 
+     RowBox[{
+      RowBox[{"Transpose", "[", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"m", "/", "tau"}], "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"alpha", "[", 
+             RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+            RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "+", 
+         RowBox[{"e", "*", 
+          RowBox[{"A", "[", 
+           RowBox[{"tf", "-", "tau"}], "]"}]}]}], ")"}], "]"}], ".", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"m", "/", "tau"}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"alpha", "[", 
+            RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+           RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "+", 
+        RowBox[{"e", "*", 
+         RowBox[{"A", "[", 
+          RowBox[{"tf", "-", "tau"}], "]"}]}]}], ")"}]}]}], "-", "gse"}], "//",
+    "InputForm"}]}]], "Input",
+ CellChangeTimes->{{3.6580099109977617`*^9, 3.65800995244619*^9}, {
+  3.658010020994615*^9, 3.658010031250967*^9}}],
+
+Cell["\<\
+{
+ {-gse + (((-I/2)*((I*EF1)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) + 
+         (I*E^(I*int1*(-tau + tf)*w)*EF1)/(Sqrt[1 + epsilon1^2]*int1*w) + 
+         (I*EF2)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + epsilon2^2]*int2*w) + \
+(I*E^(I*int2*(-tau + tf)*w)*EF2)/
+          (Sqrt[1 + epsilon2^2]*int2*w)) + 
+       (-((I*EF2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + epsilon2^2]*int2*w) - \
+(I*E^(I*int2*tf*w)*EF2*int1)/
+             (Sqrt[1 + epsilon2^2]*int2*w) + \
+(I*EF1*int2)/(E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) - 
+            (I*E^(I*int1*tf*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w) + 
+         ((I*EF2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + epsilon2^2]*int2*w) \
+- 
+           (I*E^(I*int2*(-tau + tf)*w)*EF2*int1)/(Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+           (I*EF1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) - 
+           (I*E^(I*int1*(-tau + tf)*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w))/tau)^2 + 
+     (((I*EF1*epsilon1)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) - 
+         (I*E^(I*int1*(-tau + tf)*w)*EF1*epsilon1)/(Sqrt[1 + \
+epsilon1^2]*int1*w) + 
+         (I*EF2*epsilon2)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) - 
+         (I*E^(I*int2*(-tau + tf)*w)*EF2*epsilon2)/(Sqrt[1 + \
+epsilon2^2]*int2*w))/2 + 
+       (((-I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+            (I*E^(I*int2*tf*w)*EF2*epsilon2*int1)/(Sqrt[1 + \
+epsilon2^2]*int2*w) + (I*EF1*epsilon1*int2)/
+             (E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) + \
+(I*E^(I*int1*tf*w)*EF1*epsilon1*int2)/
+             (Sqrt[1 + epsilon1^2]*int1*w)))/(int1*int2*w) + 
+         ((I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+            (I*E^(I*int2*(-tau + tf)*w)*EF2*epsilon2*int1)/(Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+            (I*EF1*epsilon1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) + 
+            (I*E^(I*int1*(-tau + tf)*w)*EF1*epsilon1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w)))/(int1*int2*w))/tau)^2)/
+    2}}\
+\>", "Output",
+ CellChangeTimes->{
+  3.658010578954591*^9, 3.658023420464416*^9, 3.658023649350716*^9, 
+   3.6580658694423532`*^9, 3.661618724501906*^9, 3.661632795134212*^9, 
+   3.664553908312828*^9, {3.664553990074377*^9, 3.6645540251862373`*^9}, {
+   3.664562084707212*^9, 3.664562105633066*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"deriv", "\[IndentingNewLine]", "eqn", " ", 
+    RowBox[{"(", "19", ")"}], " ", "milosevic", "\[IndentingNewLine]", "aka", 
+    " ", "saddle", " ", "point", " ", "finder", " ", "eqn", " ", 
+    RowBox[{"w", "/", " ", "fixed"}], " ", "real", " ", "tf"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"1", "/", 
+        RowBox[{"(", 
+         RowBox[{"2", "m"}], ")"}]}], "*", 
+       RowBox[{
+        RowBox[{"Transpose", "[", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"m", "/", "tau"}], "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"alpha", "[", 
+               RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+              RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "+", 
+           RowBox[{"e", "*", 
+            RowBox[{"A", "[", 
+             RowBox[{"tf", "-", "tau"}], "]"}]}]}], ")"}], "]"}], ".", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"m", "/", "tau"}], "*", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"alpha", "[", 
+              RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+             RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "+", 
+          RowBox[{"e", "*", 
+           RowBox[{"A", "[", 
+            RowBox[{"tf", "-", "tau"}], "]"}]}]}], ")"}]}]}], "-", "gse"}], 
+     ",", "tau"}], "]"}], "//", "InputForm"}]}]], "Input",
+ CellChangeTimes->{{3.658009975933393*^9, 3.658009986955577*^9}, {
+  3.658010035254622*^9, 3.6580100378745337`*^9}, {3.66161891846119*^9, 
+  3.661618919046484*^9}}],
+
+Cell["\<\
+{{(2*((-I/2)*((I*EF1)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + epsilon1^2]*int1*w) \
++ (I*E^(I*int1*(-tau + tf)*w)*EF1)/
+         (Sqrt[1 + epsilon1^2]*int1*w) + (I*EF2)/(E^(I*int2*(-tau + \
+tf)*w)*Sqrt[1 + epsilon2^2]*int2*w) + 
+        (I*E^(I*int2*(-tau + tf)*w)*EF2)/(Sqrt[1 + epsilon2^2]*int2*w)) + 
+      (-((I*EF2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + epsilon2^2]*int2*w) - \
+(I*E^(I*int2*tf*w)*EF2*int1)/
+            (Sqrt[1 + epsilon2^2]*int2*w) + \
+(I*EF1*int2)/(E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) - 
+           (I*E^(I*int1*tf*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w) + 
+        ((I*EF2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + epsilon2^2]*int2*w) - 
+          (I*E^(I*int2*(-tau + tf)*w)*EF2*int1)/(Sqrt[1 + epsilon2^2]*int2*w) \
++ 
+          (I*EF1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + epsilon1^2]*int1*w) \
+- 
+          (I*E^(I*int1*(-tau + tf)*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w))/tau)*
+     ((-I/2)*(-(EF1/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + epsilon1^2])) + \
+(E^(I*int1*(-tau + tf)*w)*EF1)/
+         Sqrt[1 + epsilon1^2] - EF2/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + \
+epsilon2^2]) + 
+        (E^(I*int2*(-tau + tf)*w)*EF2)/Sqrt[1 + epsilon2^2]) - 
+      (-((I*EF2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + epsilon2^2]*int2*w) - \
+(I*E^(I*int2*tf*w)*EF2*int1)/
+            (Sqrt[1 + epsilon2^2]*int2*w) + \
+(I*EF1*int2)/(E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) - 
+           (I*E^(I*int1*tf*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w) + 
+        ((I*EF2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + epsilon2^2]*int2*w) - 
+          (I*E^(I*int2*(-tau + tf)*w)*EF2*int1)/(Sqrt[1 + epsilon2^2]*int2*w) \
++ 
+          (I*EF1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + epsilon1^2]*int1*w) \
+- 
+          (I*E^(I*int1*(-tau + tf)*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w))/tau^2 + 
+      (-((EF2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + epsilon2^2])) - \
+(E^(I*int2*(-tau + tf)*w)*EF2*int1)/
+         Sqrt[1 + epsilon2^2] - (EF1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + \
+epsilon1^2]) - 
+        (E^(I*int1*(-tau + tf)*w)*EF1*int2)/Sqrt[1 + \
+epsilon1^2])/(2*int1*int2*tau*w)) + 
+    2*(((I*EF1*epsilon1)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) - 
+        (I*E^(I*int1*(-tau + tf)*w)*EF1*epsilon1)/(Sqrt[1 + \
+epsilon1^2]*int1*w) + 
+        (I*EF2*epsilon2)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) - 
+        (I*E^(I*int2*(-tau + tf)*w)*EF2*epsilon2)/(Sqrt[1 + \
+epsilon2^2]*int2*w))/2 + 
+      (((-I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+           (I*E^(I*int2*tf*w)*EF2*epsilon2*int1)/(Sqrt[1 + \
+epsilon2^2]*int2*w) + (I*EF1*epsilon1*int2)/
+            (E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) + \
+(I*E^(I*int1*tf*w)*EF1*epsilon1*int2)/
+            (Sqrt[1 + epsilon1^2]*int1*w)))/(int1*int2*w) + 
+        ((I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+           (I*E^(I*int2*(-tau + tf)*w)*EF2*epsilon2*int1)/(Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+           (I*EF1*epsilon1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) + 
+           (I*E^(I*int1*(-tau + tf)*w)*EF1*epsilon1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w)))/(int1*int2*w))/tau)*
+     ((-((EF1*epsilon1)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + epsilon1^2])) - 
+        (E^(I*int1*(-tau + tf)*w)*EF1*epsilon1)/Sqrt[1 + epsilon1^2] - 
+        (EF2*epsilon2)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + epsilon2^2]) - \
+(E^(I*int2*(-tau + tf)*w)*EF2*epsilon2)/
+         Sqrt[1 + epsilon2^2])/2 - 
+      (((-I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+           (I*E^(I*int2*tf*w)*EF2*epsilon2*int1)/(Sqrt[1 + \
+epsilon2^2]*int2*w) + (I*EF1*epsilon1*int2)/
+            (E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) + \
+(I*E^(I*int1*tf*w)*EF1*epsilon1*int2)/
+            (Sqrt[1 + epsilon1^2]*int1*w)))/(int1*int2*w) + 
+        ((I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+           (I*E^(I*int2*(-tau + tf)*w)*EF2*epsilon2*int1)/(Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+           (I*EF1*epsilon1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) + 
+           (I*E^(I*int1*(-tau + tf)*w)*EF1*epsilon1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w)))/(int1*int2*w))/tau^2 + 
+      ((I/2)*(-((EF2*epsilon2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + \
+epsilon2^2])) + 
+         (E^(I*int2*(-tau + tf)*w)*EF2*epsilon2*int1)/Sqrt[1 + epsilon2^2] - \
+(EF1*epsilon1*int2)/
+          (E^(I*int1*(-tau + tf)*w)*Sqrt[1 + epsilon1^2]) + (E^(I*int1*(-tau \
++ tf)*w)*EF1*epsilon1*int2)/
+          Sqrt[1 + epsilon1^2]))/(int1*int2*tau*w)))/2}}\
+\>", "Output",
+ CellChangeTimes->{3.658010891453588*^9, 3.658023835935207*^9, 
+  3.65806609064432*^9, 3.6616189232132683`*^9, 3.661632695598452*^9, 
+  3.664553912289833*^9, 3.6645540268544416`*^9, 3.664562143089987*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"eqn", " ", 
+    RowBox[{"(", "24", ")"}], " ", "Milosevic", "\[IndentingNewLine]", "aka", 
+    " ", "position", " ", "at", " ", "time", " ", "t"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"pos24", "[", 
+      RowBox[{"t_", ",", "tau_", ",", "tf_"}], "]"}], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"\[HBar]", "/", "m"}], "*", 
+       RowBox[{"(", 
+        RowBox[{"t", "-", "tf"}], ")"}], "*", 
+       RowBox[{"Re", "[", 
+        RowBox[{
+         RowBox[{"m", "/", "\[HBar]"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"1", "/", "tau"}], ")"}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"alpha", "[", 
+            RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+           RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "]"}]}], "+", 
+      RowBox[{"alpha", "[", "t", "]"}], "-", 
+      RowBox[{"alpha", "[", "tf", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"pos24", "[", 
+     RowBox[{"t", ",", "tau", ",", "tf"}], "]"}], "//", 
+    "InputForm"}]}]}]], "Input",
+ CellChangeTimes->{{3.658010040833541*^9, 3.658010086171962*^9}, {
+   3.658012494421754*^9, 3.658012503315028*^9}, {3.658012534116238*^9, 
+   3.6580125343387136`*^9}, {3.6580125842850933`*^9, 3.6580126066997757`*^9}, 
+   3.662830800123938*^9, {3.664562183813857*^9, 3.664562198917164*^9}}],
+
+Cell["\<\
+{{((I*EF2*int1)/(E^(I*int2*t*w)*Sqrt[1 + epsilon2^2]*int2*w) - \
+(I*E^(I*int2*t*w)*EF2*int1)/
+      (Sqrt[1 + epsilon2^2]*int2*w) + (I*EF1*int2)/(E^(I*int1*t*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) - 
+     (I*E^(I*int1*t*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w) - 
+   ((I*EF2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + epsilon2^2]*int2*w) - \
+(I*E^(I*int2*tf*w)*EF2*int1)/
+      (Sqrt[1 + epsilon2^2]*int2*w) + (I*EF1*int2)/(E^(I*int1*tf*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) - 
+     (I*E^(I*int1*tf*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w) + 
+   (t - tf)*Re[(-((I*EF2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + epsilon2^2]*int2*w) \
+- (I*E^(I*int2*tf*w)*EF2*int1)/
+           (Sqrt[1 + epsilon2^2]*int2*w) + \
+(I*EF1*int2)/(E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) - 
+          (I*E^(I*int1*tf*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w) + 
+       ((I*EF2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + epsilon2^2]*int2*w) - \
+
+         (I*E^(I*int2*(-tau + tf)*w)*EF2*int1)/(Sqrt[1 + epsilon2^2]*int2*w) + 
+         (I*EF1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + epsilon1^2]*int1*w) - 
+         (I*E^(I*int1*(-tau + tf)*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w))/tau]}, 
+ {((I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*t*w)*Sqrt[1 + epsilon2^2]*int2*w) + 
+      (I*E^(I*int2*t*w)*EF2*epsilon2*int1)/(Sqrt[1 + epsilon2^2]*int2*w) + 
+      (I*EF1*epsilon1*int2)/(E^(I*int1*t*w)*Sqrt[1 + epsilon1^2]*int1*w) + \
+(I*E^(I*int1*t*w)*EF1*epsilon1*int2)/
+       (Sqrt[1 + epsilon1^2]*int1*w)))/(int1*int2*w) - 
+   ((I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+      (I*E^(I*int2*tf*w)*EF2*epsilon2*int1)/(Sqrt[1 + epsilon2^2]*int2*w) + 
+      (I*EF1*epsilon1*int2)/(E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) + \
+(I*E^(I*int1*tf*w)*EF1*epsilon1*int2)/
+       (Sqrt[1 + epsilon1^2]*int1*w)))/(int1*int2*w) + 
+   (t - tf)*Re[(((-I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+          (I*E^(I*int2*tf*w)*EF2*epsilon2*int1)/(Sqrt[1 + epsilon2^2]*int2*w) \
++ (I*EF1*epsilon1*int2)/
+           (E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) + \
+(I*E^(I*int1*tf*w)*EF1*epsilon1*int2)/
+           (Sqrt[1 + epsilon1^2]*int1*w)))/(int1*int2*w) + 
+       ((I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+          (I*E^(I*int2*(-tau + tf)*w)*EF2*epsilon2*int1)/(Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+          (I*EF1*epsilon1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) + 
+          (I*E^(I*int1*(-tau + tf)*w)*EF1*epsilon1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w)))/(int1*int2*w))/tau]}}\
+\>", "Output",
+ CellChangeTimes->{
+  3.658012547011243*^9, {3.6580125794549294`*^9, 3.658012608809888*^9}, 
+   3.662394464017206*^9, 3.662830801632189*^9, 3.664553918267283*^9, 
+   3.6645540301208477`*^9, {3.6645621824535522`*^9, 3.6645621992971687`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"eqn", " ", 
+    RowBox[{"(", "25", ")"}], " ", "Milosevic", "\[IndentingNewLine]", "aka", 
+    " ", "velocity", " ", "at", " ", "time", " ", "t"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"vel25", "[", 
+      RowBox[{"t_", ",", "tau_", ",", "tf_"}], "]"}], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"e", "/", "m"}], "*", 
+       RowBox[{"A", "[", "t", "]"}]}], "+", 
+      RowBox[{
+       RowBox[{"\[HBar]", "/", "m"}], "*", 
+       RowBox[{"Re", "[", 
+        RowBox[{
+         RowBox[{"m", "/", "\[HBar]"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"1", "/", "tau"}], ")"}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"alpha", "[", 
+            RowBox[{"tf", "-", "tau"}], "]"}], "-", 
+           RowBox[{"alpha", "[", "tf", "]"}]}], ")"}]}], "]"}]}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"vel25", "[", 
+     RowBox[{"t", ",", "tau", ",", "tf"}], "]"}], "//", 
+    "InputForm"}]}]}]], "Input",
+ CellChangeTimes->{{3.6580125377326937`*^9, 3.658012544586562*^9}, 
+   3.658012839055921*^9, {3.658012900558675*^9, 3.658012905172825*^9}, 
+   3.6628308094278393`*^9, {3.66456225901263*^9, 3.664562267245131*^9}}],
+
+Cell["\<\
+{{(-I/2)*((I*EF1)/(E^(I*int1*t*w)*Sqrt[1 + epsilon1^2]*int1*w) + \
+(I*E^(I*int1*t*w)*EF1)/
+      (Sqrt[1 + epsilon1^2]*int1*w) + (I*EF2)/(E^(I*int2*t*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+     (I*E^(I*int2*t*w)*EF2)/(Sqrt[1 + epsilon2^2]*int2*w)) + 
+   Re[(-((I*EF2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + epsilon2^2]*int2*w) - \
+(I*E^(I*int2*tf*w)*EF2*int1)/
+          (Sqrt[1 + epsilon2^2]*int2*w) + \
+(I*EF1*int2)/(E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) - 
+         (I*E^(I*int1*tf*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w) + 
+      ((I*EF2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + epsilon2^2]*int2*w) - 
+        (I*E^(I*int2*(-tau + tf)*w)*EF2*int1)/(Sqrt[1 + epsilon2^2]*int2*w) + \
+
+        (I*EF1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + epsilon1^2]*int1*w) - \
+
+        (I*E^(I*int1*(-tau + tf)*w)*EF1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w))/(2*int1*int2*w))/tau]}, 
+ {((I*EF1*epsilon1)/(E^(I*int1*t*w)*Sqrt[1 + epsilon1^2]*int1*w) - \
+(I*E^(I*int1*t*w)*EF1*epsilon1)/
+      (Sqrt[1 + epsilon1^2]*int1*w) + (I*EF2*epsilon2)/(E^(I*int2*t*w)*Sqrt[1 \
++ epsilon2^2]*int2*w) - 
+     (I*E^(I*int2*t*w)*EF2*epsilon2)/(Sqrt[1 + epsilon2^2]*int2*w))/2 + 
+   Re[(((-I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*tf*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+         (I*E^(I*int2*tf*w)*EF2*epsilon2*int1)/(Sqrt[1 + epsilon2^2]*int2*w) \
++ (I*EF1*epsilon1*int2)/
+          (E^(I*int1*tf*w)*Sqrt[1 + epsilon1^2]*int1*w) + \
+(I*E^(I*int1*tf*w)*EF1*epsilon1*int2)/
+          (Sqrt[1 + epsilon1^2]*int1*w)))/(int1*int2*w) + 
+      ((I/2)*((I*EF2*epsilon2*int1)/(E^(I*int2*(-tau + tf)*w)*Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+         (I*E^(I*int2*(-tau + tf)*w)*EF2*epsilon2*int1)/(Sqrt[1 + \
+epsilon2^2]*int2*w) + 
+         (I*EF1*epsilon1*int2)/(E^(I*int1*(-tau + tf)*w)*Sqrt[1 + \
+epsilon1^2]*int1*w) + 
+         (I*E^(I*int1*(-tau + tf)*w)*EF1*epsilon1*int2)/(Sqrt[1 + \
+epsilon1^2]*int1*w)))/(int1*int2*w))/tau]}}\
+\>", "Output",
+ CellChangeTimes->{3.6580129098979816`*^9, 3.662394501738491*^9, 
+  3.6628308120617723`*^9, 3.664553922283588*^9, 3.664554032929994*^9, 
+  3.664562267774358*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1005, 752},
+WindowMargins->{{2, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 29, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 524, 13, 165, "Input"],
+Cell[CellGroupData[{
+Cell[1107, 37, 94, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[1226, 42, 3491, 91, 237, "Input"],
+Cell[4720, 135, 2884, 89, 118, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7641, 229, 4210, 114, 341, "Input"],
+Cell[11854, 345, 528, 11, 100, "Output"]
+}, Open  ]],
+Cell[12397, 359, 4559, 120, 275, "Input"],
+Cell[16959, 481, 91, 1, 28, InheritFromParent],
+Cell[17053, 484, 4647, 118, 292, "Input"],
+Cell[21703, 604, 93, 1, 28, InheritFromParent]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21833, 610, 101, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[21959, 615, 1571, 43, 165, "Input"],
+Cell[23533, 660, 2411, 51, 400, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25981, 716, 1772, 46, 199, "Input"],
+Cell[27756, 764, 4901, 96, 790, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32694, 865, 1552, 37, 182, "Input"],
+Cell[34249, 904, 2904, 55, 460, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37190, 964, 1393, 36, 165, "Input"],
+Cell[38586, 1002, 2099, 42, 340, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
